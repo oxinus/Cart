@@ -1,0 +1,30 @@
+ul{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+  }
+  li {
+    padding: 26px;
+    font-size: 24px;
+  }
+  li:hover{
+    text-decoration: underline;
+  }
+  a.nav-link:link {
+    text-decoration: none;
+  }
+  a.nav-link:visited {
+    color: black;
+  }
+  @media (max-width: 610px) {
+    ul {
+      flex-direction: column;
+      padding-left: 0;
+      margin-left: 110px;
+    }
+    li {
+      padding: 14px;
+      font-size: 18px;
+      margin-top: 0;
+    }
+  }

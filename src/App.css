@@ -1,0 +1,9 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Monospace;
+}
+button:focus {
+  outline: none !important;
+  box-shadow: none !important; 
+}

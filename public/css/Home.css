@@ -1,0 +1,34 @@
+.home-container {
+    width: 70%;
+    margin: auto auto 80px auto;
+}
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-gap:20px;
+}
+.product-img {
+    max-width: 100%;
+    margin:-20px auto 0px;
+    max-height: 200px;
+}
+.card {
+    border:1px rgba(0,0,0,.125) solid;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+h1{
+    font-size: 26px;
+    font-weight: lighter;
+    margin: 40px 0px 23px;
+}
+p {
+    font-size: 16px;
+    margin-top: 15px;
+}
+h3 {
+    font-size: 24px;
+    font-style: oblique;
+    margin-top: 15px;
+}
