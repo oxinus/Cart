@@ -18,15 +18,15 @@ const Nav = ({product, setProduct}) => {
                 <Router>
                     <ul>
                         <li >
-                        <NavLink className='nav-link' to='/' >Home</NavLink>
+                        <NavLink activeClassName='active' className='nav-link' to='/' >Home</NavLink>
                         </li>
 
                         <li>
-                            <NavLink className='nav-link' to='/about'>About</NavLink>
+                            <NavLink activeClassName='active' className='nav-link' to='/about'>About</NavLink>
                         </li>
 
                         <li><i className="fa fa-shopping-cart fa-sm"></i>
-                        <   NavLink className='nav-link' to='/cart'>Cart({counter})</NavLink>
+                            <NavLink activeClassName='active' className='nav-link' to='/cart'>Cart({counter})</NavLink>
                         </li>
                     </ul>
                     <Switch>

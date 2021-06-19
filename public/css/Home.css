@@ -4,7 +4,10 @@
 }
 .products-grid {
     display: grid;
+    display: -ms-grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    -ms-grid-rows: 300px 10px 300px 10px 300px;
+    -ms-grid-columns: 1fr 10px 1fr;
     grid-gap:20px;
 }
 .product-img {

@@ -10,12 +10,12 @@ ul{
   li:hover{
     text-decoration: underline;
   }
-  a.nav-link:link {
-    text-decoration: none;
-  }
-  a.nav-link:visited {
+  a{
     color: black;
   }
+  a.nav-link:link {
+    text-decoration: none;
+}
   @media (max-width: 610px) {
     ul {
       flex-direction: column;
