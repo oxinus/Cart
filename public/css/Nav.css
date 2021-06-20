@@ -1,9 +1,10 @@
-ul{
+.nav-ul{
     display: flex;
     list-style: none;
     justify-content: center;
+    padding: 0;
   }
-  li {
+  .nav-ul li {
     padding: 26px;
     font-size: 24px;
   }
@@ -17,12 +18,11 @@ ul{
     text-decoration: none;
 }
   @media (max-width: 610px) {
-    ul {
+    .nav-ul {
       flex-direction: column;
-      padding-left: 0;
-      margin-left: 110px;
+      text-align: center;
     }
-    li {
+    .nav-ul li {
       padding: 14px;
       font-size: 18px;
       margin-top: 0;

@@ -5,7 +5,7 @@ import Checkout from './Checkout';
 const Cart = ({filterList, setFilterList, counter, setCounter, product, setProduct}) => {
     const [checkoutState, setCheckoutstate] = useState(false);
     const Increament =(row) => {
-        const counterplus = filterList.map( (ele) => {
+        const counterplus = filterList.map( function (ele) {
             if (ele.id === row.id) {
                 return {
                     img :ele.img,
@@ -25,7 +25,7 @@ const Cart = ({filterList, setFilterList, counter, setCounter, product, setProdu
     }
     const Decreament =(row) => {
         if (row.counter === 1){
-            const product_checkhandler = product.map((element) => {
+            const product_checkhandler = product.map(function (element) {
                 if (element.id === row.id){
                     return {
                         img : element.img ,
@@ -41,13 +41,13 @@ const Cart = ({filterList, setFilterList, counter, setCounter, product, setProdu
                 }
             })
             setProduct(product_checkhandler)
-            const trashHandler = filterList.filter ((item) =>{
+            const trashHandler = filterList.filter (function (item) {
                 return item.id !== row.id
             })
             setFilterList(trashHandler)
         }
         else{
-        const counterminus = filterList.map( (ele) => {
+        const counterminus = filterList.map( function (ele) {
             if (ele.id === row.id) {
                 return {
                     img :ele.img,

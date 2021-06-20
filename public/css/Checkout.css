@@ -6,16 +6,15 @@
     height: 225px;
     margin: 60px 0 0 30px;
 }
-p {
-    margin: 12px 0 5px 10px;
-}
-.total-payment {
+.total-payment, .total-item {
     padding-top: 10px;
+    margin-left: 15px;
 }
-h2.total-value {
+.total-value {
     font-size: 22px;
+    margin-left: 15px;
 }
-h2 {
+.total-counter {
     margin-left: 15px;
     font-size:18px ;
 }
@@ -56,19 +55,21 @@ hr {
        height: 190px;
        width: 165px;
     }
-    p{
+    .total-item {
         margin-top: 0;
-        padding-top: 0;
     }
     .total-item, .total-payment{
         font-size: 14px;
         padding-top: 12px;
     }
-    h2{
-        font-size: 14px;
+    .total-counter{
+        font-size: 18px;
     }
-    h2.total-value{
+    .total-value{
         font-size: 16px;
+    }
+    .total-value, .total-counter{
+        padding-top: 3px;
     }
     .checkout-btn, .clear-btn{
         font-size: 12px;

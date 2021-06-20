@@ -16,7 +16,7 @@ const Nav = ({product, setProduct}) => {
         <>
         {notfoundCheck ? <NotFound /> : <nav>    
                 <Router>
-                    <ul>
+                    <ul className='nav-ul'>
                         <li >
                         <NavLink activeClassName='active' className='nav-link' to='/' >Home</NavLink>
                         </li>

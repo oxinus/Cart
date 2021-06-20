@@ -2,11 +2,11 @@ import React from 'react';
 
 const Checkout = ({counter, filterList, setFilterList, setCounter, product, setProduct, checkoutState, setCheckoutstate}) => {
     let total = 0
-    filterList.filter ((row) => {
+    filterList.filter (function (row) {
         return total += row.subtotal
     })
     const checkoutHandler =(e) => {
-        const productReset = product.map ( (row) => {
+        const productReset = product.map ( function (row) {
             return {
                 img :row.img,
                 name: row.name,
@@ -29,7 +29,7 @@ const Checkout = ({counter, filterList, setFilterList, setCounter, product, setP
     return (
         <div className='checkout-container'>
             <p className='total-item'>Total Items</p>
-            <h2>{counter}</h2>
+            <h2 className='total-counter'>{counter}</h2>
             <p className='total-payment'>Total Payment</p>
             <h2 className='total-value'>${total}</h2>
             <hr />

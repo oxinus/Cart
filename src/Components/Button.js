@@ -8,12 +8,12 @@ const Button = ({item, filterList, setFilterList, product, setProduct, counter, 
             setFilterList ([...filterList, addToCart])
         } else{
             setCounter (counter -1)
-            let newfilterList = filterList.filter((ele) => {
+            let newfilterList = filterList.filter(function (ele) {
                 return ele.id !== item.id
             })
             setFilterList(newfilterList)
         }
-        const newProduct = product.map ((row) => {
+        const newProduct = product.map (function (row) {
             if(row.id === item.id){
                 return {
                     img : row.img,

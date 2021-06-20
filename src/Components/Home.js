@@ -8,20 +8,22 @@ const Home = ({filterList, setFilterList, product, setProduct, counter,setCounte
                 <div>
                     <h1>Store</h1>
                 </div>
-                <div className='products-grid'>
+                {/* <div className='products-grid'> */}
+                <ul className='products-list'>
                     {product.map((item) => {
                         return (
-                            <div className="card" key={item.id}>
-                                <img className='product-img' src={item.img} alt='' style={{paddingBottom:'20px'}}/>
+                            <li key={item.id}>
+                                <img className='product-img' src={item.img} alt=''/>
                                 <p>{item.name}</p>
                                 <h3>${item.price}</h3>
                                 <Button item={item}
                                 filterList={filterList} setFilterList={setFilterList} 
                                 product={product} setProduct={setProduct} 
                                 setCounter={setCounter} counter={counter} /> 
-                            </div>)}
+                            </li>)}
                         )}
-                </div> 
+                </ul>
+                {/* </div>  */}
             </div>
         </div>
     )
