@@ -2,11 +2,11 @@ import React from 'react';
 
 const Checkout = ({counter, filterList, setFilterList, setCounter, product, setProduct, checkoutState, setCheckoutstate}) => {
     let total = 0
-    filterList.filter (function (row) {
+    filterList.filter ((row) => {
         return total += row.subtotal
     })
     const checkoutHandler =(e) => {
-        const productReset = product.map ( function (row) {
+        const productReset = product.map ( (row) => {
             return {
                 img :row.img,
                 name: row.name,

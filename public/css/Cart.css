@@ -33,7 +33,7 @@ th {
     font-weight: 600;
 }
 td img {
-    max-width: 80px;
+    max-width: 70px;
     height: 90px;
     margin: 10px 15px
 }
@@ -42,13 +42,15 @@ td img {
     justify-content: flex-start;
 }
 .product-name {
-    margin: auto 0px auto 20px;
+    margin-top: 45px;
+    max-width: 110px;
+    font-size: 16px;
 }
 .quantity-title {
     padding: 0px 40px 0px 90px;
 }
 .product-price {
-    padding-left: 15px;
+    margin-left: 25px;
     font-size: 14px;
 }
 .product-quantity {
@@ -85,10 +87,7 @@ td img {
     font-size: 16px;
 }
 .disable-add {
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    user-select: none;
     pointer-events: none;
     opacity: .4;
 }
@@ -112,19 +111,19 @@ td img {
     padding: 0;
     letter-spacing: 1px;
 }
+.buymore-navlink {
+    display: block;
+}
 .buymore-btn:hover{
     background-color: #4CAF50;
 }
-a.buymore-navlink:link {
-    text-decoration: none;
-}
+/* a.buymore-navlink:link{
+    color: #4CAF50;
+} */
 a.buymore-navlink:visited {
     color:#4CAF50
 }
 a.buymore-navlink:hover {
-    color: white;
-}
-a.buymore-navlink:active {
     color: white;
 }
 @media (max-width: 1250px){
@@ -133,11 +132,10 @@ a.buymore-navlink:active {
     }
     td img{
         height: 80px;
+        width: 60px;
     }
     .product-name{
         font-size: 14px;
-        margin: auto 0 auto 0;
-        width: 100px;
     }
     .product-quantity{
         width: 85px;
@@ -147,7 +145,7 @@ a.buymore-navlink:active {
         font-size: 14px;
     }
     .product-title{
-        padding: 6px 0 6px 20px;
+        padding-left: 15px;
     }
     .quantity-number{
         font-size: 12px;

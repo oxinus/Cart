@@ -5,7 +5,7 @@ import Checkout from './Checkout';
 const Cart = ({filterList, setFilterList, counter, setCounter, product, setProduct}) => {
     const [checkoutState, setCheckoutstate] = useState(false);
     const Increament =(row) => {
-        const counterplus = filterList.map( function (ele) {
+        const counterplus = filterList.map( (ele) => {
             if (ele.id === row.id) {
                 return {
                     img :ele.img,
@@ -25,7 +25,7 @@ const Cart = ({filterList, setFilterList, counter, setCounter, product, setProdu
     }
     const Decreament =(row) => {
         if (row.counter === 1){
-            const product_checkhandler = product.map(function (element) {
+            const product_checkhandler = product.map((element) => {
                 if (element.id === row.id){
                     return {
                         img : element.img ,
@@ -41,13 +41,13 @@ const Cart = ({filterList, setFilterList, counter, setCounter, product, setProdu
                 }
             })
             setProduct(product_checkhandler)
-            const trashHandler = filterList.filter (function (item) {
+            const trashHandler = filterList.filter ((item) =>{
                 return item.id !== row.id
             })
             setFilterList(trashHandler)
         }
         else{
-        const counterminus = filterList.map( function (ele) {
+        const counterminus = filterList.map( (ele) => {
             if (ele.id === row.id) {
                 return {
                     img :ele.img,
@@ -83,8 +83,8 @@ const Cart = ({filterList, setFilterList, counter, setCounter, product, setProdu
                             return (
                                 <tbody key={row.id}>
                                     <tr>
-                                        <td className='product-detail'><img src={row.img} alt=''/><p className='product-name'>{row.name}</p></td>
-                                        <td><p className='product-price'>${row.price}</p></td>
+                                        <td className='product-detail'><img src={row.img} alt=''/><div className='product-name'>{row.name}</div></td>
+                                        <td><div className='product-price'>${row.price}</div></td>
                                         <td>
                                             <div className='product-quantity'>
                                                 <button type='button' className={`minus-button ${row.counter === 1 ? 'trash-icon' : ''}`} 

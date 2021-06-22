@@ -24,9 +24,7 @@ hr {
     margin: 20px auto 0 auto;
 }
 .payment-buttons {
-    display: flex;
-    justify-content: space-evenly;
-    margin: auto 0 auto 0;
+    margin: auto 0 auto 15px;
 }
 .checkout-btn {
     background-color: green;
@@ -35,6 +33,7 @@ hr {
     text-transform: uppercase;
     cursor: pointer;
     height: 27px;
+    margin-right: 10px;
 }
 .clear-btn {
     background-color: red;
@@ -43,6 +42,9 @@ hr {
     text-transform: uppercase;
     cursor: pointer;
     height: 24px;
+}
+.checkout-btn:hover, .clear-btn:hover{
+    transform: skew(1deg, 1deg);
 }
 @media (max-width: 780px){
    .checkout-container{
@@ -77,6 +79,7 @@ hr {
     .checkout-btn{
         width: 65px;
         padding: 0;
+        margin-left: 12px;
     }
     .clear-btn{
         padding: 0;

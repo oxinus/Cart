@@ -9,7 +9,7 @@ const Nav = ({product, setProduct}) => {
     const [filterList, setFilterList] = useState ([]);
   const [counter , setCounter] = useState (0)
   const [notfoundCheck, setNotfoundCheck] = useState(false);
-  const ker =() => {
+  const notfoundHandler =() => {
       setNotfoundCheck(true)
   }
     return (
@@ -45,7 +45,7 @@ const Nav = ({product, setProduct}) => {
                             product={product} setProduct={setProduct}/>
                         </Route>
                         <Route>
-                            {ker}
+                            {notfoundHandler}
                         </Route>
                     </Switch>
                 </Router>
