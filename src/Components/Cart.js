@@ -2,11 +2,30 @@ import React, {useState, useContext} from 'react';
 import {NavLink} from 'react-router-dom';
 import Checkout from './Checkout';
 import {productContext} from '../App';
+import {filterContext, counterContext} from './Nav';
 
+// create context api to send checkout state to other component
+export const checkoutStateContext = React.createContext();
+// --------------------------
 
-const Cart = ({filterList, setFilterList, counter, setCounter}) => {
+export const Cart = () => {
     const [checkoutState, setCheckoutstate] = useState(false);
+
+    // get the states from nav and app component 
     const products = useContext(productContext)
+    const counters = useContext(counterContext)
+    const filters = useContext(filterContext)
+    // ------------------------------
+
+    // the first part of list is related to state and the secont part for setting states
+    const product = products[0]
+    const setProduct = products[1]
+    const counter = counters[0]
+    const setCounter = counters[1]
+    const filterList = filters[0]
+    const setFilterList = filters[1]
+    // ----------------
+
     const Increament =(row) => {
         const counterplus = filterList.map( (ele) => {
             if (ele.id === row.id) {
@@ -28,7 +47,7 @@ const Cart = ({filterList, setFilterList, counter, setCounter}) => {
     }
     const Decreament =(row) => {
         if (row.counter === 1){
-            const product_checkhandler = products[0].map((element) => {
+            const product_checkhandler = product.map((element) => {
                 if (element.id === row.id){
                     return {
                         img : element.img ,
@@ -43,7 +62,7 @@ const Cart = ({filterList, setFilterList, counter, setCounter}) => {
                     return element
                 }
             })
-            products[1](product_checkhandler)
+            setProduct(product_checkhandler)
             const trashHandler = filterList.filter ((item) =>{
                 return item.id !== row.id
             })
@@ -106,9 +125,13 @@ const Cart = ({filterList, setFilterList, counter, setCounter}) => {
                             )
                         })}
                 </table>
-                <Checkout counter={counter} filterList={filterList}
-                setFilterList={setFilterList} setCounter={setCounter}
-                setCheckoutstate={setCheckoutstate} />
+
+                {/* create context provider to send setCheckoutstate dispatcher to checkout component */}
+                <checkoutStateContext.Provider value={setCheckoutstate}>
+                    <Checkout />
+                </checkoutStateContext.Provider>
+                {/* -------------------------- */}
+                
             </div>}
             {checkoutState ?
             <div className='checkout-success'>
@@ -119,7 +142,6 @@ const Cart = ({filterList, setFilterList, counter, setCounter}) => {
         </div>
     )
 }
-export default Cart
 
 
                             

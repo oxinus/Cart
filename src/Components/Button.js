@@ -1,13 +1,31 @@
 import React, {useContext} from 'react';
 import {productContext} from '../App';
+import {filterContext, counterContext} from './Nav';
 
 
-const Button = ({item, filterList, setFilterList, counter, setCounter}) => {
+
+const Button = ({item}) => {
+
+    // get the states from nav and app component 
     const products = useContext(productContext)
+    const counters = useContext(counterContext)
+    const filters = useContext(filterContext)
+    // --------------------------------------------
+
+
+    // the first part of list is related to state and the secont part for setting states
+    const product = products[0]
+    const setProduct = products[1]
+    const counter = counters[0]
+    const setCounter = counters[1]
+    const filterList = filters[0]
+    const setFilterList = filters[1]
+    // ----------------------------------------
+
     const buttonhandler =() => {
         if (item.check === false){
             setCounter (counter + 1)
-            const addToCart = products[0].find(element => element.id === item.id ) 
+            const addToCart = product.find(element => element.id === item.id ) 
             setFilterList ([...filterList, addToCart])
         } else{
             setCounter (counter -1)
@@ -16,7 +34,7 @@ const Button = ({item, filterList, setFilterList, counter, setCounter}) => {
             })
             setFilterList(newfilterList)
         }
-        const newProduct = products[0].map ((row) => {
+        const newProduct = product.map ((row) => {
             if(row.id === item.id){
                 return {
                     img : row.img,
@@ -31,7 +49,7 @@ const Button = ({item, filterList, setFilterList, counter, setCounter}) => {
                 return row
             }
         })
-        products[1](newProduct)
+        setProduct(newProduct)
     }
     return (
         <div>

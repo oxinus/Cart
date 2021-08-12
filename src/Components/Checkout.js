@@ -1,15 +1,34 @@
 import React, {useContext} from 'react';
 import {productContext} from '../App';
+import {filterContext, counterContext} from './Nav';
+import {checkoutStateContext} from './Cart';
 
 
-const Checkout = ({counter, filterList, setFilterList, setCounter, checkoutState, setCheckoutstate}) => {
+
+const Checkout = () => {
+
+    // get the states from nav and app component 
     const products = useContext(productContext)
+    const counters = useContext(counterContext)
+    const filters = useContext(filterContext)
+    // -------------------------------------------
+
+    // the first part of list is related to state and the secont part for setting states
+    const setCheckoutstate = useContext(checkoutStateContext)
+    const product = products[0]
+    const setProduct = products[1]
+    const counter = counters[0]
+    const setCounter = counters[1]
+    const filterList = filters[0]
+    const setFilterList = filters[1]
+    // ---------------------------------
+
     let total = 0
     filterList.filter ((row) => {
         return total += row.subtotal
     })
     const checkoutHandler =(e) => {
-        const productReset = products[0].map ( (row) => {
+        const productReset = product.map ( (row) => {
             return {
                 img :row.img,
                 name: row.name,
@@ -22,7 +41,7 @@ const Checkout = ({counter, filterList, setFilterList, setCounter, checkoutState
         })
         setCounter(0)
         setFilterList([])
-        products[1](productReset)
+        setProduct(productReset)
         if (e.target.name === 'checkout'){
             setCheckoutstate(true)
         } else{

@@ -1,9 +1,12 @@
-import React , {createContext, useState} from 'react';
+import React , {useState} from 'react';
 import './App.css';
-import Nav from './Components/Nav'
+import {Nav} from './Components/Nav'
 import {v4 as uuidv4} from 'uuid';
 
+// initial context api ------------
 export const productContext = React.createContext();
+// ------------------------------------------
+
 export const App =() =>{
   const [product, setProduct] = useState([
     {
@@ -89,10 +92,13 @@ export const App =() =>{
     }
   ])
   return (
+
+    // create context api provider to send states and dispatcher to other component
     <productContext.Provider value={[product, setProduct]}>
       <div className='container'>
         <Nav />
       </div>
     </productContext.Provider>
+    // ---------------------------------------------
   );
 }

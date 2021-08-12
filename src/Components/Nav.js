@@ -1,14 +1,21 @@
-import React, {useContext, useState} from 'react';
-import Cart from './Cart';
+import React, {useState} from 'react';
+import {Cart} from './Cart';
 import Home from './Home';
 import About from './About';
 import NotFound from './NotFound';
 import {BrowserRouter as Router, NavLink, Route, Switch} from 'react-router-dom';
 
-const Nav = () => {
+// initial context api --------------------------------
+export const filterContext = React.createContext();
+export const counterContext = React.createContext();
+// ------------------------
+
+export const Nav = () => {
+
     const [filterList, setFilterList] = useState ([]);
     const [counter , setCounter] = useState (0)
     const [notfoundCheck, setNotfoundCheck] = useState(false);
+
     const notfoundHandler =() => {
       setNotfoundCheck(true)
   }
@@ -31,18 +38,29 @@ const Nav = () => {
                     </ul>
                     <Switch>
                         <Route exact path='/'>
-                            <Home filterList={filterList}
-                            setFilterList={setFilterList} 
-                              setCounter={setCounter}
-                             counter={counter} />
+
+                            {/* send states to home component with context api */}
+                            <filterContext.Provider value={[filterList, setFilterList]}>
+                                <counterContext.Provider value={[counter, setCounter]}>
+                                    <Home />
+                                </counterContext.Provider>
+                            </filterContext.Provider>
+                            {/* --------------------------- */}
+
                         </Route>
                         <Route exact path='/about'>
                             <About />
                         </Route>
                         <Route exact path='/cart'>
-                            <Cart filterList={filterList} setFilterList={setFilterList}
-                            counter={counter} setCounter={setCounter}  
-                            />
+
+                            {/* send states to cart component with context api */}
+                            <filterContext.Provider value={[filterList, setFilterList]}>
+                                <counterContext.Provider value={[counter, setCounter]}>
+                                    <Cart />
+                                </counterContext.Provider>
+                            </filterContext.Provider>
+                            {/* ------------------------------------ */}
+
                         </Route>
                         <Route>
                             {notfoundHandler}
@@ -54,4 +72,3 @@ const Nav = () => {
     )
 }
 
-export default Nav
