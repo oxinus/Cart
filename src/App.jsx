@@ -1,6 +1,6 @@
 import React , {useState} from 'react';
 import './App.css';
-import {Nav} from './Components/Nav'
+import {Nav} from './components/Nav'
 import {v4 as uuidv4} from 'uuid';
 
 // initial context api ------------
@@ -91,6 +91,7 @@ export const App =() =>{
       check : false   
     }
   ])
+  console.log(product)
   return (
 
     // create context api provider to send states and dispatcher to other component

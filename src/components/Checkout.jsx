@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {productContext} from '../App';
 import {filterContext, counterContext} from './Nav';
-import {checkoutStateContext} from './Cart';
+import {checkoutStateContext} from '../pages/Cart';
 
 
 

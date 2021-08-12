@@ -1,8 +1,8 @@
 import React, {useState, useContext} from 'react';
 import {NavLink} from 'react-router-dom';
-import Checkout from './Checkout';
+import Checkout from '../components/Checkout';
 import {productContext} from '../App';
-import {filterContext, counterContext} from './Nav';
+import {filterContext, counterContext} from '../components/Nav';
 
 // create context api to send checkout state to other component
 export const checkoutStateContext = React.createContext();
