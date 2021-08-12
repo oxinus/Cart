@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {Cart} from './Cart';
-import Home from './Home';
-import About from './About';
-import NotFound from './NotFound';
+import {Cart} from '../pages/Cart';
+import Home from '../pages/Home';
+import About from '../pages/About';
+import NotFound from '../pages/NotFound';
 import {BrowserRouter as Router, NavLink, Route, Switch} from 'react-router-dom';
 
 // initial context api --------------------------------
