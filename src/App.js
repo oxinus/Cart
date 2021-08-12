@@ -3,7 +3,7 @@ import './App.css';
 import Nav from './Components/Nav'
 import {v4 as uuidv4} from 'uuid';
 
-export const productContext = createContext();
+export const productContext = React.createContext();
 export const App =() =>{
   const [product, setProduct] = useState([
     {
@@ -91,7 +91,7 @@ export const App =() =>{
   return (
     <productContext.Provider value={[product, setProduct]}>
       <div className='container'>
-        <Nav product={product} setProduct={setProduct} />
+        <Nav />
       </div>
     </productContext.Provider>
   );

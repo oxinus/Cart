@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {productContext} from '../App';
 
-const Checkout = ({counter, filterList, setFilterList, setCounter, product, setProduct, checkoutState, setCheckoutstate}) => {
+
+const Checkout = ({counter, filterList, setFilterList, setCounter, checkoutState, setCheckoutstate}) => {
+    const products = useContext(productContext)
     let total = 0
     filterList.filter ((row) => {
         return total += row.subtotal
     })
     const checkoutHandler =(e) => {
-        const productReset = product.map ( (row) => {
+        const productReset = products[0].map ( (row) => {
             return {
                 img :row.img,
                 name: row.name,
@@ -19,7 +22,7 @@ const Checkout = ({counter, filterList, setFilterList, setCounter, product, setP
         })
         setCounter(0)
         setFilterList([])
-        setProduct(productReset)
+        products[1](productReset)
         if (e.target.name === 'checkout'){
             setCheckoutstate(true)
         } else{

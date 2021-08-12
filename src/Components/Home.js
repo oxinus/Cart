@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Button from './Button';
+import {productContext} from '../App';
 
-const Home = ({filterList, setFilterList, product, setProduct, counter,setCounter}) => {
+
+const Home = ({filterList, setFilterList, counter,setCounter}) => {
+    const products = useContext(productContext)
     return (
         <div>
             <div className='home-container'>
@@ -10,7 +13,7 @@ const Home = ({filterList, setFilterList, product, setProduct, counter,setCounte
                 </div>
                 {/* <div className='products-grid'> */}
                 <ul className='products-list'>
-                    {product.map((item) => {
+                    {products[0].map((item) => {
                         return (
                             <li key={item.id}>
                                 <img className='product-img' src={item.img} alt=''/>
@@ -18,7 +21,7 @@ const Home = ({filterList, setFilterList, product, setProduct, counter,setCounte
                                 <h3>${item.price}</h3>
                                 <Button item={item}
                                 filterList={filterList} setFilterList={setFilterList} 
-                                product={product} setProduct={setProduct} 
+                                 
                                 setCounter={setCounter} counter={counter} /> 
                             </li>)}
                         )}

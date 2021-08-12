@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {NavLink} from 'react-router-dom';
 import Checkout from './Checkout';
+import {productContext} from '../App';
 
-const Cart = ({filterList, setFilterList, counter, setCounter, product, setProduct}) => {
+
+const Cart = ({filterList, setFilterList, counter, setCounter}) => {
     const [checkoutState, setCheckoutstate] = useState(false);
+    const products = useContext(productContext)
     const Increament =(row) => {
         const counterplus = filterList.map( (ele) => {
             if (ele.id === row.id) {
@@ -25,7 +28,7 @@ const Cart = ({filterList, setFilterList, counter, setCounter, product, setProdu
     }
     const Decreament =(row) => {
         if (row.counter === 1){
-            const product_checkhandler = product.map((element) => {
+            const product_checkhandler = products[0].map((element) => {
                 if (element.id === row.id){
                     return {
                         img : element.img ,
@@ -40,7 +43,7 @@ const Cart = ({filterList, setFilterList, counter, setCounter, product, setProdu
                     return element
                 }
             })
-            setProduct(product_checkhandler)
+            products[1](product_checkhandler)
             const trashHandler = filterList.filter ((item) =>{
                 return item.id !== row.id
             })
@@ -105,7 +108,7 @@ const Cart = ({filterList, setFilterList, counter, setCounter, product, setProdu
                 </table>
                 <Checkout counter={counter} filterList={filterList}
                 setFilterList={setFilterList} setCounter={setCounter}
-                product={product} setProduct={setProduct} setCheckoutstate={setCheckoutstate} />
+                setCheckoutstate={setCheckoutstate} />
             </div>}
             {checkoutState ?
             <div className='checkout-success'>

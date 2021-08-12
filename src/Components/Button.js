@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {productContext} from '../App';
 
-const Button = ({item, filterList, setFilterList, product, setProduct, counter, setCounter}) => {
+
+const Button = ({item, filterList, setFilterList, counter, setCounter}) => {
+    const products = useContext(productContext)
     const buttonhandler =() => {
         if (item.check === false){
             setCounter (counter + 1)
-            const addToCart = product.find(element => element.id === item.id ) 
+            const addToCart = products[0].find(element => element.id === item.id ) 
             setFilterList ([...filterList, addToCart])
         } else{
             setCounter (counter -1)
@@ -13,7 +16,7 @@ const Button = ({item, filterList, setFilterList, product, setProduct, counter, 
             })
             setFilterList(newfilterList)
         }
-        const newProduct = product.map ((row) => {
+        const newProduct = products[0].map ((row) => {
             if(row.id === item.id){
                 return {
                     img : row.img,
@@ -28,7 +31,7 @@ const Button = ({item, filterList, setFilterList, product, setProduct, counter, 
                 return row
             }
         })
-        setProduct(newProduct)
+        products[1](newProduct)
     }
     return (
         <div>

@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import Cart from './Cart';
 import Home from './Home';
 import About from './About';
 import NotFound from './NotFound';
 import {BrowserRouter as Router, NavLink, Route, Switch} from 'react-router-dom';
 
-const Nav = ({product, setProduct}) => {
+const Nav = () => {
     const [filterList, setFilterList] = useState ([]);
-  const [counter , setCounter] = useState (0)
-  const [notfoundCheck, setNotfoundCheck] = useState(false);
-  const notfoundHandler =() => {
+    const [counter , setCounter] = useState (0)
+    const [notfoundCheck, setNotfoundCheck] = useState(false);
+    const notfoundHandler =() => {
       setNotfoundCheck(true)
   }
     return (
@@ -32,8 +32,8 @@ const Nav = ({product, setProduct}) => {
                     <Switch>
                         <Route exact path='/'>
                             <Home filterList={filterList}
-                            setFilterList={setFilterList} product={product}
-                             setProduct={setProduct} setCounter={setCounter}
+                            setFilterList={setFilterList} 
+                              setCounter={setCounter}
                              counter={counter} />
                         </Route>
                         <Route exact path='/about'>
@@ -42,7 +42,7 @@ const Nav = ({product, setProduct}) => {
                         <Route exact path='/cart'>
                             <Cart filterList={filterList} setFilterList={setFilterList}
                             counter={counter} setCounter={setCounter}  
-                            product={product} setProduct={setProduct}/>
+                            />
                         </Route>
                         <Route>
                             {notfoundHandler}
